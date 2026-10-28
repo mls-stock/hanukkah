@@ -4,7 +4,7 @@ var D=null,q=document.getElementById('q'),res=document.getElementById('res'),cnt
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
 function fmt(n){return (typeof n==='number')?n.toLocaleString('he-IL'):'-'}
 function dt(c){var k=D.containers[c];if(!k||!k.date)return 'מועד הגעה לא ידוע';var p=k.date.split('-');return k.status+': '+(k.wd?'יום '+k.wd+', ':'')+p[2]+'/'+p[1]+'/'+p[0]+' ('+k.heb+' תשפ"ז)'}
-function okImg(u){return typeof u==='string'&&/^https:\/\/(www\.)?shlich\.us\/images\/[A-Za-z0-9_\/.\-]+$/.test(u)}
+function okImg(u){return typeof u==='string'&&/^i[0-9]{1,4}\.jpg$/.test(u)}
 var box=null;
 function closeBox(){if(box){box.remove();box=null;document.removeEventListener('keydown',esc)}}
 function esc(e){if(e.key==='Escape')closeBox()}
