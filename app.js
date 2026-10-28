@@ -11,7 +11,7 @@ function card(p){
  d.appendChild(el('div',null,'כמות שהוזמנה לחנוכה: '+(typeof p.ordered==='number'?fmt(p.ordered):'-')));
  if(p.inc.length){var t=el('table'),hd=el('tr');['מכולה','כמות במכולה','מועד הגעה'].forEach(function(x){hd.appendChild(el('th',null,x))});t.appendChild(hd);
   p.inc.forEach(function(i){var r=el('tr');r.appendChild(el('td',null,i.c));r.appendChild(el('td',null,fmt(i.q)));r.appendChild(el('td',null,dt(i.c)));t.appendChild(r)});d.appendChild(t)}
- else d.appendChild(el('div','muted','אין מכולה משויכת כרגע'));
+ else d.appendChild(el('div','muted',p.pending?('הוזמנו '+fmt(p.pending)+' יחידות, טרם שויכו למכולה'):'אין מכולה משויכת כרגע'));
  return d}
 function norm(s){return String(s).toLowerCase().replace(/[\u0591-\u05C7"'`{}()\-]/g,'').trim()}
 function run(){var v=norm(q.value);res.textContent='';
